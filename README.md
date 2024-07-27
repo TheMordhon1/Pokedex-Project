@@ -6,4 +6,4 @@
 # Ticket
 
 - [x] Ticket A
-- [] Ticket B
+- [ ] Ticket B
