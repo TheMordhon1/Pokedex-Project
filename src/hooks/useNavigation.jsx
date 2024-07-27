@@ -14,6 +14,7 @@ const useNavigation = () => {
   const handleBackTo = (backTo) => {
     let audio = new Audio(outSound);
     audio.play();
+    audio.volume = 0.7;
     navigate(backTo);
   };
 
