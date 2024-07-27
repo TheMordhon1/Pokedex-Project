@@ -7,6 +7,7 @@ export default {
         black: "#0e181f",
         white: "#f1f5f9",
         grey: "#949ba7",
+        ligthblack: "#262f3b",
       },
     },
   },
