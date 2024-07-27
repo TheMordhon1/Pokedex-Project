@@ -13,7 +13,5 @@
 
 # Ticket
 
-- API - Membuat fitur search []
-- API - List Items Pokemon []
-- Style - Homepage []
-- Style - Favouritepage []
+- [x] Component - InputText[Romdon]
+- [ ] Component - Navbar[Romdon]
