@@ -5,6 +5,7 @@
 
 # Ticket
 
-- [x] ~~Ticket A~~ [Romdon]
-- [ ] Ticket B [Syailendra]
+- update di develop
+- [] Fitur Search [Romdon]
+- [x] Ticket B [Syailendra]
 - [ ] Ticket C [Diana]
