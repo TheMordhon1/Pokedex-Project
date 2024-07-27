@@ -8,4 +8,4 @@
 - update di develop
 - [] Fitur Search [Romdon]
 - [x] Ticket B [Syailendra]
-- [ ] Ticket C [Diana]
+- [x] Ticket C [Diana]
