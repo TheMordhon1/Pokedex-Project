@@ -5,5 +5,6 @@
 
 # Ticket
 
-- [x] Ticket A
-- [ ] Ticket B
+- [x] ~~Ticket A~~ [Romdon]
+- [ ] Ticket B [Syailendra]
+- [ ] Ticket C [Diana]
