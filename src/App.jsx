@@ -1,7 +1,11 @@
+import { Outlet } from "react-router-dom";
+
 function App() {
   return (
     <>
-      <h1 className="text-red-600 text-sm">Hello world!</h1>
+      <main className="bg-black h-screen">
+        <Outlet />
+      </main>
     </>
   );
 }
