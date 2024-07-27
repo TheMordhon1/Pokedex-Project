@@ -1,18 +1,13 @@
 import React from "react";
 import TextH1 from "../components/TextH1";
-import { useNavigate } from "react-router-dom";
+import useNavigation from "../hooks/useNavigation";
 
 const Favourite = () => {
-  const navigate = useNavigate();
-  const handleBackTo = () => {
-    let audio = new Audio("../assets/sound/out.wav");
-    audio.play();
-    navigate("/");
-  };
+  const { handleBackTo } = useNavigation();
   return (
     <div>
       <TextH1 text="Favourite page" />
-      <button onClick={handleBackTo} className="text-white">
+      <button onClick={() => handleBackTo("/")} className="text-white">
         Kembali
       </button>
     </div>
