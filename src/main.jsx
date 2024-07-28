@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import App from "./App";
-import Home from "./pages/Home";
+import "./index.css";
 import Favourite from "./pages/Favourite";
+import Pokemon from "./pages/Pokemon";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/:menu/:q?",
-        element: <Home />,
+        element: <Pokemon />,
       },
       {
         path: "/favourite",

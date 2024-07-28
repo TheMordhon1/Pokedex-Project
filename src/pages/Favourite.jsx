@@ -7,7 +7,7 @@ const Favourite = () => {
   return (
     <div>
       <TextH1 text="Favourite page" />
-      <button onClick={() => handleBackTo("/")} className="text-white">
+      <button onClick={() => handleBackTo(-1)} className="text-white">
         Kembali
       </button>
     </div>

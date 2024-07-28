@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="flex items-center justify-between w-full bg-ligthblack/50 border-grey/20 border-b h-[60px] px-8 md:px-20">
+    <header className="sticky top-0 flex items-center justify-between w-full bg-ligthblack/50 border-grey/20 border-b h-[60px] px-8 md:px-20">
       <div
         className="flex items-center gap-2 cursor-pointer"
         onClick={() => handleBackTo("/")}
