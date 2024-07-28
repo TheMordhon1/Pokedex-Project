@@ -42,7 +42,8 @@ function Card({ data }) {
 
   return (
     <div
-      className={`flex flex-row w-64 h-32 border-2 border-white rounded-md py-3 px-3`}
+      // className={`flex flex-row w-64 h-32 border-2 border-white rounded-md py-3 px-3`}
+      className="relative block mb-2 flex-grow flex-shrink flex-[15rem] overflow-hidden rounded-md py-3 px-4 capitalize min-h-[120px]"
       style={{
         background: getBackground(types),
       }}
@@ -57,10 +58,11 @@ function Card({ data }) {
           ))}
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="absolute right-3 top-2">
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`}
-          className="h-28"
+          width={100}
+          height={100}
         />
       </div>
     </div>
