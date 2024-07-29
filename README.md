@@ -5,8 +5,7 @@
 
 # Ticket
 
-- update di develop
-- [] Fitur Search [Romdon]
-- [x] Ticket B [Syailendra]
-- [ ] Ticket C [Diana]
-update
+- [x] Component - InputText[Romdon]
+- [ ] Component - Navbar[Romdon]
+- [x] Component - Card [Diana]
+- [x] list data [Diana]
