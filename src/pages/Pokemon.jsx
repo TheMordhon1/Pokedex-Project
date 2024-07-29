@@ -11,7 +11,7 @@ const Pokemon = () => {
         "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1050"
       );
       setData(response.data.results);
-      // console.log(response.data.results);
+   //    console.log(response.data.results);
     } catch (error) {
       console.log(error);
     }
