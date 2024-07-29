@@ -5,6 +5,9 @@ import App from "./App";
 import "./index.css";
 import Favourite from "./pages/Favourite";
 import Pokemon from "./pages/Pokemon";
+import Home from "./pages/Home";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -12,11 +15,15 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
         path: "/pokemon/:q?",
         element: <Pokemon />,
       },
       {
-        path: "/pages/favourite",
+        path: "/favourite",
         element: <Favourite />,
       },
     ],
@@ -26,5 +33,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </React.StrictMode>
 );

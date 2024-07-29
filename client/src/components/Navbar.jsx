@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-100 flex items-center justify-between w-full bg-ligthblack border-grey/20 border-b h-[60px] px-8 md:px-20">
+    <header className="sticky top-0 z-10 flex items-center justify-between w-full bg-ligthblack border-grey/20 border-b h-[60px] px-8 md:px-20">
       <div
         className="flex items-center gap-2 cursor-pointer"
         onClick={() => handleBackTo("/")}
@@ -24,7 +24,7 @@ const Navbar = () => {
       </div>
       <button
         className="bg-lightblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
-        onClick={() => handleNavigateTo("/pages/Favourite")}
+        onClick={() => handleNavigateTo("/favourite")}
       >
         Favourite
       </button>
