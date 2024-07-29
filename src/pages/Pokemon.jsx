@@ -8,7 +8,7 @@ const Pokemon = () => {
   async function getData() {
     try {
       const response = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
+        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1050"
       );
       setData(response.data.results);
       // console.log(response.data.results);
@@ -22,13 +22,11 @@ const Pokemon = () => {
   }, []);
 
   return (
-    <section>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        {data?.map((el, index) => (
-          <CardContainer key={index} url={el.url} />
-        ))}
-      </div>
-    </section>
+    <div className="flex flex-grow flex-wrap gap-x-2 pt-4">
+      {data?.map((el, index) => (
+        <CardContainer key={index} url={el.url} />
+      ))}
+    </div>
   );
 };
 

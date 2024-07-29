@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         element: <Pokemon />,
       },
       {
-        path: "/favourite",
+        path: "/pages/favourite",
         element: <Favourite />,
       },
     ],

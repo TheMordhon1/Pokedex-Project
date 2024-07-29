@@ -6,6 +6,8 @@ import InputText from "./InputText";
 const Navbar = () => {
   const { handleBackTo } = useNavigation();
   const navigate = useNavigate();
+  const {handleNavigateTo} = useNavigation();
+
 
   let { menu } = useParams();
 
@@ -27,7 +29,18 @@ const Navbar = () => {
         <div className="font-bold -skew-x-12 text-white mt-2 text-xl">
           POKÉDEX
         </div>
+
+     
       </div>
+
+
+
+<button 
+        className="bg-lightblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
+        onClick={() => handleNavigateTo ("/pages/Favourite")}>
+        Favourite
+        </button>
+
 
       <form onSubmit={handleSubmitSearch} className="">
         <InputText

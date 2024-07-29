@@ -7,6 +7,10 @@ function Card({ data }) {
     return null;
   }
 
+  const formatId = (id) => {
+    return id.toString().padStart(4, "0");
+  };
+
   const elements = {
     el_undefined: "rgba(229, 231, 235, .7)",
     el_bug: "rgba(157, 193, 48, .7)",
@@ -42,25 +46,43 @@ function Card({ data }) {
 
   return (
     <div
-      className={`flex flex-row w-64 h-32 border-2 border-white rounded-md py-3 px-3`}
+      className="relative block mb-2 flex-grow flex-shrink flex-[15rem] overflow-hidden rounded-md py-3 px-4 capitalize min-h-[120px]"
       style={{
         background: getBackground(types),
+        border: `1px solid ${elements["el_" + types[0]?.type.name]}`,
       }}
     >
-      <div className="flex flex-col w-1/2 text-start">
+      <div className="flex flex-col gap-2 w-1/2 text-start">
         <span className="text-white text-xl">{data.name}</span>
+        <span className="text-xs text-slate-300">#{formatId(data.id)}</span>
         <div className="flex items-center">
           {types?.map((type, index) => (
-            <span key={index} className="text-xs">
+            <span key={index} className="text-xs text-slate-300">
               {index > 0 ? `, ${type?.type?.name}` : type?.type?.name}
             </span>
           ))}
         </div>
+
+        <div className="flex items-center">
+          {types?.map((type, index) => {
+            const element = type.type.name;
+            return (
+              <div
+                key={index}
+                className={`${
+                  index === 0 ? "h-4 w-4" : "h-3 w-3 -ml-1"
+                } border-white border rounded-full`}
+                style={{ background: elements[`el_${element}`] }}
+              />
+            );
+          })}
+        </div>
       </div>
-      <div className="w-1/2">
+      <div className="absolute right-3 top-2">
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`}
-          className="h-28"
+          width={100}
+          height={100}
         />
       </div>
     </div>
