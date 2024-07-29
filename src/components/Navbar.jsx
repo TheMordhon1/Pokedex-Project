@@ -1,25 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import useNavigation from "../hooks/useNavigation";
 import InputText from "./InputText";
 
 const Navbar = () => {
-  const { handleBackTo } = useNavigation();
-  const navigate = useNavigate();
-  const {handleNavigateTo} = useNavigation();
-
-
-  let { menu } = useParams();
-
+  const { handleBackTo, handleNavigateTo } = useNavigation();
   const [search, setSearch] = useState("");
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
-    navigate(`/${menu}/${search}`);
+    handleNavigateTo(`/pokemon/${search}`);
   };
 
   return (
-    <header className="sticky top-0 flex items-center justify-between w-full bg-ligthblack/50 border-grey/20 border-b h-[60px] px-8 md:px-20">
+    <header className="sticky top-0 z-100 flex items-center justify-between w-full bg-ligthblack border-grey/20 border-b h-[60px] px-8 md:px-20">
       <div
         className="flex items-center gap-2 cursor-pointer"
         onClick={() => handleBackTo("/")}
@@ -29,14 +22,14 @@ const Navbar = () => {
           POKÉDEX
         </div>
       </div>
-        <button 
+      <button
         className="bg-lightblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
-        onClick={() => handleNavigateTo ("/pages/Favourite")}>
+        onClick={() => handleNavigateTo("/pages/Favourite")}
+      >
         Favourite
-        </button>
+      </button>
 
-
-      <form onSubmit={handleSubmitSearch} className="">
+      <form onSubmit={handleSubmitSearch} className="w-[15rem]">
         <InputText
           placeholder="🔍 Search pokémon"
           onChange={(e) => setSearch(e.target.value)}

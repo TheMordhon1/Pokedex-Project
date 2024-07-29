@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/:menu/:q?",
+        path: "/pokemon/:q?",
         element: <Pokemon />,
       },
       {
