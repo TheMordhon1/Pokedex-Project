@@ -6,6 +6,9 @@ import InputText from "./InputText";
 const Navbar = () => {
   const { handleBackTo } = useNavigation();
   const navigate = useNavigate();
+  const handleClick = () => {
+   navigate('/pages/Favourite');
+  }
 
   let { menu } = useParams();
 
@@ -29,12 +32,20 @@ const Navbar = () => {
         </div>
 
      
-
       </div>
-
+{/*
       <button class="bg-ligthblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded">
         Favourite
         </button>
+*/}
+
+        <button 
+        className="bg-lightblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
+        onClick={handleClick}
+      >
+        Favourite
+      </button>
+      
 
       <form onSubmit={handleSubmitSearch} className="">
         <InputText
