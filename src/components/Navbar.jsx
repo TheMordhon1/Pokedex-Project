@@ -27,7 +27,14 @@ const Navbar = () => {
         <div className="font-bold -skew-x-12 text-white mt-2 text-xl">
           POKÉDEX
         </div>
+
+     
+
       </div>
+
+      <button class="bg-ligthblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded">
+        Favourite
+        </button>
 
       <form onSubmit={handleSubmitSearch} className="">
         <InputText
