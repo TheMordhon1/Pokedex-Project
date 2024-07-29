@@ -13,7 +13,11 @@
 
 # Ticket
 
+- [ ] API - Favourite
+- [ ] Page - Favourite
 - [x] Component - InputText[Romdon]
-- [ ] Component - Navbar[Romdon]
-- [x] Component - Card [Diana]
-- [x] list data [Diana]
+- [x] Component - Navbar[Romdon][Syailendra]
+- [x] Component - Card [Diana][Romdon]
+- [x] API - list data [Diana]
+- [x] API - search data [Diana]
+- [x] API - userlog [Romdon]
