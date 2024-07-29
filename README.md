@@ -15,3 +15,5 @@
 
 - [x] Component - InputText[Romdon]
 - [ ] Component - Navbar[Romdon]
+- [x] Component - Card [Diana]
+- [x] list data [Diana]

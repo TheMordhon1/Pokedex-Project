@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
-    navigate(`/${menu}?q=${search}`);
+    navigate(`/${menu}/${search}`);
   };
 
   return (
@@ -25,17 +25,11 @@ const Navbar = () => {
         onClick={() => handleBackTo("/")}
       >
         <img src="./logo.png" alt="logo" className="w-10" />
-
         <div className="font-bold -skew-x-12 text-white mt-2 text-xl">
           POKÉDEX
         </div>
-
-     
       </div>
-
-
-
-<button 
+        <button 
         className="bg-lightblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
         onClick={() => handleNavigateTo ("/pages/Favourite")}>
         Favourite
