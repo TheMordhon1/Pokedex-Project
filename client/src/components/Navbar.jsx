@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useNavigation from "../hooks/useNavigation";
 import InputText from "./InputText";
-import { FaUser } from "react-icons/fa";
+import { FaHeart, FaUser } from "react-icons/fa";
 import { IoMdArrowDropdown, IoMdMenu } from "react-icons/io";
 import Swal from "sweetalert2";
 import Sidebar from "./Sidebar";
@@ -58,12 +58,12 @@ const Navbar = () => {
           </form>
         </div>
         <ul className="flex items-center gap-4">
-          <li>
+          <li title="favourite">
             <button
-              className="bg-lightblack hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
+              className="bg-lightblack hover:bg-slate-900 text-white font-bold py-3 px-2 rounded"
               onClick={() => handleNavigateTo("/favourite")}
             >
-              Favourite
+              <FaHeart />
             </button>
           </li>
           <li className="relative">

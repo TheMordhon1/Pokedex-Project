@@ -7,15 +7,16 @@ import TextH1 from "../components/TextH1";
 import inSound from "../assets/sound/in.wav";
 import outSound from "../assets/sound/out.wav";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import useNavigation from "../hooks/useNavigation";
 import BackTo from "../components/BackTo";
+import Loading from "../components/Loading";
+import { toast } from "react-toastify";
 
 const Pokemon = () => {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
-  const { handleNavigateTo, handleBackTo } = useNavigation();
 
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
   const [page, setPage] = useState({
@@ -34,6 +35,7 @@ const Pokemon = () => {
 
   async function getData() {
     setData([]);
+    setIsLoading(true);
     try {
       const response = await axios.get(
         searchQuery
@@ -54,6 +56,9 @@ const Pokemon = () => {
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.message);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -84,6 +89,8 @@ const Pokemon = () => {
       audio.volume = 0.7;
     }
   };
+
+  console.log(isLoading);
   return (
     <>
       <section className="py-10">
@@ -94,7 +101,10 @@ const Pokemon = () => {
             ) : (
               ""
             )}
-            <TextH1 text="Pokémon List" />
+            <div className="flex items-center gap-6">
+              <TextH1 text="Pokémon List" />
+              {isLoading ? <Loading width="w-6" height="h-6" /> : ""}
+            </div>
           </div>
 
           <div
