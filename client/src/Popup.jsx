@@ -2,7 +2,7 @@ import React from "react";
 import useNavigation from "./hooks/useNavigation";
 import TextH1 from "./components/TextH1";
 
-const Popup = ({ isOpen, onClose, onSave }) => {
+const Popup = ({ isOpen, onClose, onSave, isFavorite }) => {
   const { handleNavigateTo } = useNavigation();
   const data = JSON.parse(localStorage.getItem("detail"));
 
@@ -82,10 +82,10 @@ const Popup = ({ isOpen, onClose, onSave }) => {
         <p className="mt-4 text-grey">Ini adalah teks konten dalam popup.</p>
         <div className="flex flex-col gap-4 mt-10">
           <button
-            onClick={onSave}
+            onClick={() => onSave(data.name, data.id)}
             className="bg-green-500 text-white px-4 py-2 rounded"
           >
-            Save to Favourite
+            {!isFavorite ? 'Save to Favourite' : 'Delete Favourite'}
           </button>
           <button
             onClick={onClose}

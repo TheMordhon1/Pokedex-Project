@@ -10,6 +10,8 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import BackTo from "../components/BackTo";
 import Loading from "../components/Loading";
 import { toast } from "react-toastify";
+import Favourite from "./Favourite";
+import CardContainer from "../components/CardContainer";
 
 const Pokemon = () => {
   const [searchParams] = useSearchParams();
@@ -28,7 +30,12 @@ const Pokemon = () => {
     setIsPopupOpen(false);
   };
 
-  const handleSave = () => {
+  const handleSave = async (name, id) => {
+    await axios.post("http://localhost:3000/favourites",{
+      id: id.toString() ,
+      name : name,
+      url : `https://pokeapi.co/api/v2/pokemon/${id}`
+    })
     alert("Data saved!");
     setIsPopupOpen(false);
   };
@@ -145,29 +152,5 @@ const Pokemon = () => {
     </>
   );
 };
-
-function CardContainer({ url, isPopupOpen, setIsPopupOpen }) {
-  const [detailData, setDetailData] = useState({});
-
-  async function getDetailData() {
-    try {
-      const response = await axios.get(url);
-      setDetailData(response?.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getDetailData();
-  }, []);
-
-  const handlePopupOpen = () => {
-    setIsPopupOpen(!isPopupOpen);
-    localStorage.setItem("detail", JSON.stringify(detailData));
-  };
-
-  return <Card data={detailData} onClick={handlePopupOpen} />;
-}
 
 export default Pokemon;
