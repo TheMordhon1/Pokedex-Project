@@ -1,5 +1,6 @@
 import React from "react";
 import useNavigation from "../hooks/useNavigation";
+import InputText from "./InputText";
 
 const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
   const { handleNavigateTo } = useNavigation();
@@ -10,19 +11,23 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
           shown ? "right-0" : "-right-[100%]"
         }`}
       >
-        <ul className="grid gap-4">
-          <li>
-            <button
-              className="bg-black/50 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full"
-              onClick={() => {
-                handleNavigateTo("/favourite");
-                setShown(false);
-              }}
-            >
-              Favourite
-            </button>
-          </li>
-        </ul>
+        <div>
+          <InputText className="block sm:hidden" />
+          <p className="text-grey text-lg mb-2">Menu</p>
+          <ul className="grid gap-4">
+            <li>
+              <button
+                className="hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left"
+                onClick={() => {
+                  handleNavigateTo("/favourite");
+                  setShown(false);
+                }}
+              >
+                Favourite
+              </button>
+            </li>
+          </ul>
+        </div>
         <div className="grid gap-4">
           <h4 className="text-white font-semibold text-xl">
             Hello, {username}
