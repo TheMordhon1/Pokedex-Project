@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import useNavigation from "../hooks/useNavigation";
 import InputText from "./InputText";
 
 const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
+  const [search, setSearch] = useState("");
   const { handleNavigateTo } = useNavigation();
+
+  const handleSubmitSearch = (e) => {
+    e.preventDefault();
+    handleNavigateTo(`/pokemon?q=${search}`);
+    setShown(false);
+  };
   return (
     <>
       <aside
@@ -12,8 +19,15 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
         }`}
       >
         <div>
-          <InputText className="block sm:hidden" />
-          <p className="text-grey text-lg mb-2">Menu</p>
+          <p className="text-grey text-base mb-2">Search</p>
+          <form onSubmit={handleSubmitSearch} className="w-full mb-6">
+            <InputText
+              className="block sm:hidden"
+              placeholder="🔍 Search pokémon"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+          <p className="text-grey text-base mb-2">Menu</p>
           <ul className="grid gap-4">
             <li>
               <button
