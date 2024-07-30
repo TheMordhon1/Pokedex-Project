@@ -18,6 +18,8 @@
 - [x] Component - InputText[Romdon]
 - [x] Component - Navbar[Romdon][Syailendra]
 - [x] Component - Card [Diana][Romdon]
+- [x] Component - Sidebar [Romdon]
 - [x] API - list data [Diana]
 - [x] API - search data [Diana]
+- [x] API - userlog [Romdon]
 - [x] API - userlog [Romdon]
