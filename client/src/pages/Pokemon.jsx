@@ -67,14 +67,14 @@ const Pokemon = () => {
     
 
 
-
+{/*}
     <div className="flex flex-grow flex-wrap gap-x-2 pt-4">
       {data?.map((el, index) => (
         <CardContainer key={index} url={el.url} />
       ))}
     </div>
     
-  
+  */}
   
   
     <section className="py-10">
