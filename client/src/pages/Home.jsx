@@ -8,6 +8,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const Home = () => {
   const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const userLog = localStorage.getItem("username");
 
   const { handleNavigateTo } = useNavigation();
@@ -35,8 +36,10 @@ const Home = () => {
           icon: <FaCheckCircle className="text-3xl text-el_electric" />,
         });
       }
-      handleNavigateTo(`/pokemon`);
       localStorage.setItem("username", name);
+      setTimeout(() => {
+        handleNavigateTo(`/pokemon`);
+      }, 3000);
     } catch (error) {
       console.log("error get username:", error);
       toast.error(error.message, { theme: "dark" });
@@ -45,10 +48,13 @@ const Home = () => {
 
   const handleInputName = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await getUserName();
     } catch (error) {
       console.log("error input user:", error);
+    } finally {
+      setIsLoading(true);
     }
   };
 
@@ -61,7 +67,7 @@ const Home = () => {
     <section className="h-[calc(100vh-60px)] flex flex-col justify-center items-center">
       <img src="./logo.png" width={150} alt="" />
       <TextH1 text="Welcome to Pokédex" className="mb-10" />
-      <form onSubmit={handleInputName} className="w-[30rem]">
+      <form onSubmit={handleInputName} className="max-w-[30rem] w-full">
         <InputText
           placeholder="Type your name"
           background="bg-ligthblack"
