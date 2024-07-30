@@ -31,7 +31,11 @@ const Pokemon = () => {
   async function getData() {
     setData([]);
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(
+        searchQuery
+          ? "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1025"
+          : url
+      );
       setPage({
         next: response?.data?.next,
         prev: response?.data?.previous,
