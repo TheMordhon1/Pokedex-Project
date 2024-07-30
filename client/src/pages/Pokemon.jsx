@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { useParams } from "react-router-dom";
+import Popup from "./Popup";
 
 const Pokemon = () => {
   const [data, setData] = useState([]);
@@ -30,14 +31,47 @@ const Pokemon = () => {
     getData();
   }, [q]);
 
+// Handle Popup
+  const App = () => {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+  
+    const handleOpenPopup = () => {
+      setIsPopupOpen(true);
+    };
+  
+    const handleClosePopup = () => {
+      setIsPopupOpen(false);
+    };
+  
+    const handleSave = () => {
+      alert('Data saved!');
+      setIsPopupOpen(false);
+    };
+  
+  //
+
+
   return (
+
+    //button detail
+<>
+    <div className="bg-gray-100 flex items-center justify-center min-h-screen">
+    <button onClick={handleOpenPopup} className="bg-blue-500 text-white px-4 py-2 rounded">
+      Detail
+    </button>
+    <Popup isOpen={isPopupOpen} onClose={handleClosePopup} onSave={handleSave} />
+    </div>
+
+
     <div className="flex flex-grow flex-wrap gap-x-2 pt-4">
       {data?.map((el, index) => (
         <CardContainer key={index} url={el.url} />
       ))}
     </div>
+  </>
+  
   );
-};
+}};
 
 function CardContainer({ url }) {
   const [detailData, setDetailData] = useState({});
@@ -56,6 +90,8 @@ function CardContainer({ url }) {
   }, []);
 
   return <Card data={detailData} />;
+
+
 }
 
 export default Pokemon;
