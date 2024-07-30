@@ -1,7 +1,8 @@
 import React from "react";
-import TextH1 from "./TextH1";
+import useNavigation from "../hooks/useNavigation";
 
-const Sidebar = ({ username, shown, handleToggle, handleLogout }) => {
+const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
+  const { handleNavigateTo } = useNavigation();
   return (
     <>
       <aside
@@ -13,7 +14,10 @@ const Sidebar = ({ username, shown, handleToggle, handleLogout }) => {
           <li>
             <button
               className="bg-black/50 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full"
-              onClick={() => handleNavigateTo("/favourite")}
+              onClick={() => {
+                handleNavigateTo("/favourite");
+                setShown(false);
+              }}
             >
               Favourite
             </button>

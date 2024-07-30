@@ -113,6 +113,7 @@ const Navbar = () => {
       <Sidebar
         username={username}
         shown={sidebarShown}
+        setShown={setSidebarShown}
         handleToggle={handleToggleMenu}
         handleSubmitSearch={handleSubmitSearch}
         handleLogout={handleLogout}
