@@ -7,8 +7,10 @@
 
 - [ ] API - Favourite
 - [ ] Page - Favourite
+- [ ] Page - Error
 - [x] Component - InputText[Romdon]
 - [x] Component - Navbar[Romdon][Syailendra]
+- [x] Component - PopUp[Romdon][Syailendra]
 - [x] Component - Card [Diana][Romdon]
 - [x] Component - Sidebar [Romdon]
 - [x] API - list data [Diana]
