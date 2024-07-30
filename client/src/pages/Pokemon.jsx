@@ -73,9 +73,9 @@ const Pokemon = () => {
         <CardContainer key={index} url={el.url} />
       ))}
     </div>
-    <Popup isOpen={isPopupOpen} onClose={handleClosePopup} onSave={handleSave} />
+    
   
-  </>
+  
   
     <section className="py-10">
       <TextH1 text="Pokémon List" className="mb-8" />
@@ -85,6 +85,9 @@ const Pokemon = () => {
         ))}
       </div>
     </section>
+    <Popup isOpen={isPopupOpen} onClose={handleClosePopup} onSave={handleSave} />
+  </>
+  
   );
 };
 
