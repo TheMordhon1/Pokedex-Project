@@ -31,11 +31,12 @@ const Pokemon = () => {
   };
 
   const handleSave = async (name, id) => {
-    await axios.post("http://localhost:3000/favourites",{
-      id: id.toString() ,
-      name : name,
-      url : `https://pokeapi.co/api/v2/pokemon/${id}`
-    })
+    await axios.post("http://localhost:3000/favourites", {
+      id: id.toString(),
+      name: name,
+      url: `https://pokeapi.co/api/v2/pokemon/${id}`,
+      username: localStorage.getItem("username"),
+    });
     alert("Data saved!");
     setIsPopupOpen(false);
   };
@@ -97,7 +98,6 @@ const Pokemon = () => {
     }
   };
 
-  console.log(isLoading);
   return (
     <>
       <section className="py-10">

@@ -61,7 +61,7 @@ const Navbar = () => {
           <li title="favourite">
             <button
               className="bg-lightblack hover:bg-slate-900 text-white font-bold py-3 px-2 rounded"
-              onClick={() => handleNavigateTo("/favourite")}
+              onClick={() => handleNavigateTo(`${username}/favourite`)}
             >
               <FaHeart />
             </button>

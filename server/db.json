@@ -7,35 +7,26 @@
     {
       "id": "1e3d",
       "username": "Sule"
-    },
-    {
-      "id": "31c5",
-      "username": "Parto"
-    },
-    {
-      "id": "98d8",
-      "username": "themordhon"
-    },
-    {
-      "id": "4a2b",
-      "username": "thermodhon"
     }
   ],
   "favourites": [
     {
       "id": "2",
       "name": "ivysaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/2"
+      "url": "https://pokeapi.co/api/v2/pokemon/2",
+      "username": "Andre"
     },
     {
-      "id": "1",
-      "name": "bulbasaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/1"
+      "id": "8",
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8",
+      "username": "Andre"
     },
     {
-      "id": "1",
-      "name": "bulbasaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/1"
+      "id": "12",
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12",
+      "username": "Andre"
     }
   ]
 }
