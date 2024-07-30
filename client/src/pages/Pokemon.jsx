@@ -39,7 +39,7 @@ const Pokemon = () => {
     try {
       const response = await axios.get(
         searchQuery
-          ? "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1025"
+          ? "https://pokeapi.co/api/v2/pokemon?offset=0&limit=2025"
           : url
       );
       setPage({
