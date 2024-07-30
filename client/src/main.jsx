@@ -8,6 +8,7 @@ import Pokemon from "./pages/Pokemon";
 import Home from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Detail from "./pages/Detail";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/pokemon/:q?",
+        path: "/pokemon?",
         element: <Pokemon />,
+      },
+      {
+        path: "/pokemon/:name",
+        element: <Detail />,
       },
       {
         path: "/favourite",

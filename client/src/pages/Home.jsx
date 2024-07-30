@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import TextH1 from "../components/TextH1";
-import InputText from "../components/InputText";
-import useNavigation from "../hooks/useNavigation";
-import { toast } from "react-toastify";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
+import InputText from "../components/InputText";
+import TextH1 from "../components/TextH1";
+import useNavigation from "../hooks/useNavigation";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -35,8 +35,8 @@ const Home = () => {
           icon: <FaCheckCircle className="text-3xl text-el_electric" />,
         });
       }
-      handleNavigateTo(`/pokemon`);
       localStorage.setItem("username", name);
+      handleNavigateTo(`/pokemon`);
     } catch (error) {
       console.log("error get username:", error);
       toast.error(error.message, { theme: "dark" });
@@ -61,7 +61,7 @@ const Home = () => {
     <section className="h-[calc(100vh-60px)] flex flex-col justify-center items-center">
       <img src="./logo.png" width={150} alt="" />
       <TextH1 text="Welcome to Pokédex" className="mb-10" />
-      <form onSubmit={handleInputName} className="w-[30rem]">
+      <form onSubmit={handleInputName} className="max-w-[30rem] w-full">
         <InputText
           placeholder="Type your name"
           background="bg-ligthblack"

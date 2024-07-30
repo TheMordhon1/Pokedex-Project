@@ -1,7 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 
+import useNavigation from "../hooks/useNavigation";
+
 function Card({ data }) {
+  const { handleNavigateTo } = useNavigation();
+
   const types = data?.types;
   if (!types) {
     return null;
@@ -44,13 +48,19 @@ function Card({ data }) {
     }
   };
 
+  const handleToDetailPokemon = () => {
+    handleNavigateTo(`${data.name}`);
+    localStorage.setItem("detail", JSON.stringify(data));
+  };
+
   return (
     <div
-      className="relative block mb-2 flex-grow flex-shrink flex-[15rem] overflow-hidden rounded-md py-3 px-4 capitalize min-h-[120px]"
+      className="relative block mb-2 flex-grow flex-shrink flex-[15rem] overflow-hidden rounded-md py-3 px-4 capitalize min-h-[120px] transition-all ease-linear duration-150 hover:shadow-sm hover:shadow-white hover:scale-[1.02] cursor-pointer"
       style={{
         background: getBackground(types),
         border: `1px solid ${elements["el_" + types[0]?.type.name]}`,
       }}
+      onClick={() => handleToDetailPokemon()}
     >
       <div className="flex flex-col gap-2 w-1/2 text-start">
         <span className="text-white text-xl">{data.name}</span>

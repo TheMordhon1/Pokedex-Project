@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Card from "../components/Card";
 import { useParams } from "react-router-dom";
 import Popup from "../Popup";
+import TextH1 from "../components/TextH1";
 
 const Pokemon = () => {
   const [data, setData] = useState([]);
-  let { q } = useParams();
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("q");
 
   async function getData() {
     setData([]);
@@ -14,9 +17,9 @@ const Pokemon = () => {
       const response = await axios.get(
         "https://pokeapi.co/api/v2/pokemon?offset=0&limit=40"
       );
-      if (q) {
+      if (searchQuery) {
         const searchData = response?.data?.results?.filter((value) =>
-          value.name.includes(q)
+          value.name.includes(searchQuery)
         );
         setData(searchData);
       } else {
@@ -29,7 +32,7 @@ const Pokemon = () => {
 
   useEffect(() => {
     getData();
-  }, [q]);
+  }, [searchQuery]);
 
 // Handle Popup
  // const App = () => {
@@ -74,6 +77,14 @@ const Pokemon = () => {
   
   </>
   
+    <section className="py-10">
+      <TextH1 text="Pokémon List" className="mb-8" />
+      <div className="flex flex-grow flex-wrap gap-x-2 pt-4">
+        {data?.map((el, index) => (
+          <CardContainer key={index} url={el.url} />
+        ))}
+      </div>
+    </section>
   );
 };
 

@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
-    handleNavigateTo(`/pokemon/${search}`);
+    handleNavigateTo(`/pokemon?q=${search}`);
   };
 
   const handleLogout = () => {
@@ -27,7 +27,6 @@ const Navbar = () => {
       if (result.isConfirmed) {
         localStorage.clear();
         handleBackTo("/");
-        setIsLoading(false);
       }
     });
   };
@@ -100,7 +99,10 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <form onSubmit={handleSubmitSearch} className="w-[15rem]">
+          <form
+            onSubmit={handleSubmitSearch}
+            className="w-[15rem] hidden sm:block"
+          >
             <InputText
               placeholder="🔍 Search pokémon"
               onChange={(e) => setSearch(e.target.value)}
