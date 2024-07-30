@@ -27,7 +27,6 @@ const Navbar = () => {
       if (result.isConfirmed) {
         localStorage.clear();
         handleBackTo("/");
-        setIsLoading(false);
       }
     });
   };

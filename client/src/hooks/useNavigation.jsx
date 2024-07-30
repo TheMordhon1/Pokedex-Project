@@ -18,10 +18,6 @@ const useNavigation = () => {
     navigate(backTo);
   };
 
-
-
-  
-
   return { handleNavigateTo, handleBackTo };
 };
 

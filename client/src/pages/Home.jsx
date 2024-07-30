@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import TextH1 from "../components/TextH1";
-import InputText from "../components/InputText";
-import useNavigation from "../hooks/useNavigation";
-import { toast } from "react-toastify";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
+import InputText from "../components/InputText";
+import TextH1 from "../components/TextH1";
+import useNavigation from "../hooks/useNavigation";
 
 const Home = () => {
   const [name, setName] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const userLog = localStorage.getItem("username");
 
   const { handleNavigateTo } = useNavigation();
@@ -37,9 +36,7 @@ const Home = () => {
         });
       }
       localStorage.setItem("username", name);
-      setTimeout(() => {
-        handleNavigateTo(`/pokemon`);
-      }, 3000);
+      handleNavigateTo(`/pokemon`);
     } catch (error) {
       console.log("error get username:", error);
       toast.error(error.message, { theme: "dark" });
@@ -48,13 +45,10 @@ const Home = () => {
 
   const handleInputName = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     try {
       await getUserName();
     } catch (error) {
       console.log("error input user:", error);
-    } finally {
-      setIsLoading(true);
     }
   };
 
