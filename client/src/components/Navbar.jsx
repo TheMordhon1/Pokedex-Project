@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { IoMdArrowDropdown, IoMdMenu } from "react-icons/io";
 import Swal from "sweetalert2";
 import Sidebar from "./Sidebar";
+import Logo from "../assets/logo.png";
 
 const Navbar = () => {
   const { handleBackTo, handleNavigateTo } = useNavigation();
@@ -44,7 +45,7 @@ const Navbar = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleBackTo("/")}
           >
-            <img src="./logo.png" alt="logo" className="w-10" />
+            <img src={Logo} alt="logo" className="w-10" />
             <div className="font-bold -skew-x-12 text-white mt-2 text-xl">
               POKÉDEX
             </div>
@@ -92,7 +93,7 @@ const Navbar = () => {
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => handleBackTo("/")}
         >
-          <img src="./logo.png" alt="logo" className="w-10" />
+          <img src={Logo} alt="logo" className="w-10" />
           <div className="font-bold -skew-x-12 text-white mt-2 text-xl">
             POKÉDEX
           </div>
