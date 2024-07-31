@@ -19,12 +19,6 @@
   ],
   "favourites": [
     {
-      "id": "8eb7",
-      "name": "butterfree",
-      "url": "https://pokeapi.co/api/v2/pokemon/12/",
-      "username": "Sule"
-    },
-    {
       "id": "be07",
       "name": "ivysaur",
       "url": "https://pokeapi.co/api/v2/pokemon/2/",
@@ -71,6 +65,12 @@
       "name": "ninetales",
       "url": "https://pokeapi.co/api/v2/pokemon/38/",
       "username": "themordhon"
+    },
+    {
+      "id": "a12b",
+      "name": "raichu",
+      "url": "https://pokeapi.co/api/v2/pokemon/26/",
+      "username": "Sule"
     }
   ]
 }

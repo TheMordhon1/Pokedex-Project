@@ -19,7 +19,7 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
         }`}
       >
         <div>
-          <p className="text-grey text-base mb-2">Search</p>
+          <p className="text-grey text-base mb-2 block sm:hidden">Search</p>
           <form onSubmit={handleSubmitSearch} className="w-full mb-6">
             <InputText
               className="block sm:hidden"
