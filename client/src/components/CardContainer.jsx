@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
-import Loading from "./Loading";
 
-function CardContainer({ url, handlePopupOpen }) {
+function CardContainer({ url, count, handlePopupOpen }) {
   const [detailData, setDetailData] = useState({});
 
   async function getDetailData() {
@@ -22,7 +21,7 @@ function CardContainer({ url, handlePopupOpen }) {
     }
   }, [url]);
 
-  return <Card data={detailData} onClick={handlePopupOpen} />;
+  return <Card data={detailData} count={count} onClick={handlePopupOpen} />;
 }
 
 export default CardContainer;

@@ -27,12 +27,6 @@
   ],
   "favourites": [
     {
-      "id": "be07",
-      "name": "ivysaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/2/",
-      "username": "Sule"
-    },
-    {
       "id": "9b0d",
       "name": "ivysaur",
       "url": "https://pokeapi.co/api/v2/pokemon/2/",
@@ -75,16 +69,94 @@
       "username": "themordhon"
     },
     {
-      "id": "a12b",
+      "id": "788a",
+      "name": "pikachu-gmax",
+      "url": "https://pokeapi.co/api/v2/pokemon/10199/",
+      "username": "Sule"
+    },
+    {
+      "id": "b089",
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "username": "Sule"
+    },
+    {
+      "id": "7af4",
+      "name": "sandshrew",
+      "url": "https://pokeapi.co/api/v2/pokemon/27/",
+      "username": "Sule"
+    },
+    {
+      "id": "bd3a",
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "username": "Sule"
+    },
+    {
+      "id": "aba7",
       "name": "raichu",
       "url": "https://pokeapi.co/api/v2/pokemon/26/",
       "username": "Sule"
     },
     {
-      "id": "37a9",
-      "name": "bulbasaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/1/",
-      "username": "diana"
+      "id": "c7de",
+      "name": "pikachu-gmax",
+      "url": "https://pokeapi.co/api/v2/pokemon/10199/",
+      "username": "Sule"
+    },
+    {
+      "id": "48bc",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Sule"
+    },
+    {
+      "id": "bc93",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Sule"
+    },
+    {
+      "id": "1798",
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon/14/",
+      "username": "Sule"
+    },
+    {
+      "id": "c5eb",
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon/14/",
+      "username": "Sule"
+    },
+    {
+      "id": "0e61",
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon/4/",
+      "username": "Sule"
+    },
+    {
+      "id": "0cf7",
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "username": "Sule"
+    },
+    {
+      "id": "0c3a",
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "username": "Sule"
+    },
+    {
+      "id": "2024",
+      "name": "pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon/17/",
+      "username": "Sule"
+    },
+    {
+      "id": "d91d",
+      "name": "pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon/17/",
+      "username": "Sule"
     }
   ]
 }

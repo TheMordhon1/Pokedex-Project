@@ -28,7 +28,19 @@ const Favourite = () => {
       const filterByUsername = response.data.filter(
         (data) => data.username === username
       );
-      setDataFav(filterByUsername);
+
+      const newData = {};
+      filterByUsername.map((item) => {
+        if (newData[item.name]) {
+          newData[item.name].count++;
+        } else {
+          newData[item.name] = { ...item, count: 1 };
+        }
+
+        return newData[item.name];
+      });
+
+      setDataFav(Object.values(newData));
     } catch (error) {
       console.log(error);
       toast.error(error.message, { theme: "light" });
@@ -109,6 +121,8 @@ const Favourite = () => {
       .finally(setIsLoading(false));
   };
 
+  console.log(popupContent);
+
   return (
     <section className="py-10">
       <BackTo text="back to home" to={"/"} />
@@ -122,6 +136,7 @@ const Favourite = () => {
             key={index}
             url={el?.url}
             isPopupOpen={isPopupOpen}
+            count={el.count}
             handlePopupOpen={() => handlePopupOpen(el)}
           />
         ))}

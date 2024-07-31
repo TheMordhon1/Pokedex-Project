@@ -87,7 +87,7 @@ const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
             height={210}
           />
 
-          <div className="absolute bottom-4 right-4 flex items-center">
+          <div className="absolute bottom-4 left-4 flex items-center">
             {data?.types?.map((type, index) => {
               const element = type?.type?.name;
               return (
@@ -101,6 +101,11 @@ const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
               );
             })}
           </div>
+          {content.count > 1 && (
+            <span className="absolute top-4 right-4 text-white text-lg flex items-center justify-center w-10 h-10 bg-black shadow-sm shadow-white rounded-full">
+              {content.count}x
+            </span>
+          )}
         </div>
         <div className="flex justify-between items-center  mt-6">
           <TextH1 text={data?.name} className="capitalize tracking-wider" />
