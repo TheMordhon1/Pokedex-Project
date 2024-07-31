@@ -157,6 +157,12 @@
       "name": "pidgeotto",
       "url": "https://pokeapi.co/api/v2/pokemon/17/",
       "username": "Sule"
+    },
+    {
+      "id": "5902",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Sule"
     }
   ]
 }
