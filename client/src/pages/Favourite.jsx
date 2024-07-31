@@ -12,11 +12,12 @@ import { toast } from "react-toastify";
 
 import inSound from "../assets/sound/in.wav";
 import outSound from "../assets/sound/out.wav";
+import removeSound from "../assets/sound/remove.wav";
 
 const Favourite = () => {
   const username = localStorage.getItem("username");
   const [dataFav, setDataFav] = useState([]);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(null);
   const [popupContent, setPopupContent] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,12 +41,16 @@ const Favourite = () => {
   const handlePopupOpen = (data) => {
     setIsPopupOpen(!isPopupOpen);
     setPopupContent(data);
-    console.log(data);
+    let audio = new Audio(inSound);
+    audio.play();
   };
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
     setPopupContent(null);
+    let audio = new Audio(outSound);
+    audio.play();
+    audio.volume = 0.7;
   };
 
   useEffect(() => {
@@ -81,10 +86,11 @@ const Favourite = () => {
       .then(async (result) => {
         if (result.isConfirmed) {
           const url = `http://localhost:3000/favourites/${popupContent?.id}`;
-          console.log(url);
           await axios.delete(url);
           setIsPopupOpen(false);
           getDataFav();
+          let audio = new Audio(removeSound);
+          audio.play();
           withReactContent(Swal).fire({
             title: "Deleted!",
             html: (
@@ -103,17 +109,6 @@ const Favourite = () => {
       })
       .finally(setIsLoading(false));
   };
-
-  useEffect(() => {
-    if (isPopupOpen) {
-      let audio = new Audio(inSound);
-      audio.play();
-    } else {
-      let audio = new Audio(outSound);
-      audio.play();
-      audio.volume = 0.7;
-    }
-  }, [isPopupOpen]);
 
   return (
     <section className="py-10">

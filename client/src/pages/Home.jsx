@@ -10,7 +10,7 @@ const Home = () => {
   const [name, setName] = useState("");
   const userLog = localStorage.getItem("username");
 
-  const { handleNavigateTo } = useNavigation();
+  const { handleNavigateTo, handleNavigateNoAudio } = useNavigation();
   const getUserName = async () => {
     try {
       const response = await axios.get("http://localhost:3000/user");
@@ -54,7 +54,7 @@ const Home = () => {
 
   useEffect(() => {
     if (userLog) {
-      handleNavigateTo("/pokemon");
+      handleNavigateNoAudio("/pokemon");
     }
   }, []);
   return (

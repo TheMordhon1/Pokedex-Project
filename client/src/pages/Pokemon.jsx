@@ -12,6 +12,7 @@ import CardContainer from "../components/CardContainer";
 import Loading from "../components/Loading";
 import Popup from "../components/Popup";
 import TextH1 from "../components/TextH1";
+import SuccessSound from "../assets/sound/success.wav";
 
 const Pokemon = () => {
   const [searchParams] = useSearchParams();
@@ -30,11 +31,16 @@ const Pokemon = () => {
   const handleClosePopup = () => {
     setIsPopupOpen(false);
     setPopupContent(null);
+    let audio = new Audio(outSound);
+    audio.play();
+    audio.volume = 0.7;
   };
 
   const handlePopupOpen = (data) => {
     setIsPopupOpen(!isPopupOpen);
     setPopupContent(data);
+    let audio = new Audio(inSound);
+    audio.play();
   };
 
   const handleSave = async () => {
@@ -44,6 +50,8 @@ const Pokemon = () => {
       url: popupContent?.url,
       username: localStorage.getItem("username"),
     });
+    let audio = new Audio(SuccessSound);
+    audio.play();
     withReactContent(Swal).fire({
       title: "Saved",
       html: (
@@ -54,6 +62,7 @@ const Pokemon = () => {
       ),
       icon: "success",
     });
+
     setIsPopupOpen(false);
   };
 
@@ -89,17 +98,6 @@ const Pokemon = () => {
   useEffect(() => {
     getData();
   }, [searchQuery, url]);
-
-  useEffect(() => {
-    if (isPopupOpen) {
-      let audio = new Audio(inSound);
-      audio.play();
-    } else {
-      let audio = new Audio(outSound);
-      audio.play();
-      audio.volume = 0.7;
-    }
-  }, [isPopupOpen]);
 
   const handlePagination = (type) => {
     if (type === "next") {

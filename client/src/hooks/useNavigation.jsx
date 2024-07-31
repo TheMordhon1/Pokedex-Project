@@ -18,7 +18,11 @@ const useNavigation = () => {
     navigate(backTo);
   };
 
-  return { handleNavigateTo, handleBackTo };
+  const handleNavigateNoAudio = (to) => {
+    navigate(to);
+  };
+
+  return { handleNavigateTo, handleBackTo, handleNavigateNoAudio };
 };
 
 export default useNavigation;

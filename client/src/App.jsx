@@ -6,11 +6,11 @@ import useNavigation from "./hooks/useNavigation";
 function App() {
   const location = useLocation();
   const userLog = localStorage.getItem("username");
-  const { handleBackTo } = useNavigation();
+  const { handleNavigateNoAudio } = useNavigation();
 
   useEffect(() => {
     if (!userLog) {
-      handleBackTo("/");
+      handleNavigateNoAudio("/");
     }
   }, []);
   return (

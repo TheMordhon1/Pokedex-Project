@@ -31,18 +31,6 @@
       "username": "Sule"
     },
     {
-      "id": "85ff",
-      "name": "metapod",
-      "url": "https://pokeapi.co/api/v2/pokemon/11/",
-      "username": "themordhon"
-    },
-    {
-      "id": "801a",
-      "name": "kadabra",
-      "url": "https://pokeapi.co/api/v2/pokemon/64/",
-      "username": "themordhon"
-    },
-    {
       "id": "63b6",
       "name": "doduo",
       "url": "https://pokeapi.co/api/v2/pokemon/84/",
@@ -55,15 +43,33 @@
       "username": "parto"
     },
     {
-      "id": "773a",
-      "name": "paras",
-      "url": "https://pokeapi.co/api/v2/pokemon/46/",
-      "username": "themordhon"
-    },
-    {
       "id": "f0d4",
       "name": "charmeleon",
       "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "username": "themordhon"
+    },
+    {
+      "id": "cfea",
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "username": "themordhon"
+    },
+    {
+      "id": "1285",
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon/14/",
+      "username": "themordhon"
+    },
+    {
+      "id": "38bf",
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "username": "themordhon"
+    },
+    {
+      "id": "f2b3",
+      "name": "metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon/11/",
       "username": "themordhon"
     }
   ]
