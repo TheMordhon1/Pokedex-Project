@@ -33,7 +33,7 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
               <button
                 className="hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left"
                 onClick={() => {
-                  handleNavigateTo("/favourite");
+                  handleNavigateTo(`${username}/favourite`);
                   setShown(false);
                 }}
               >

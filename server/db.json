@@ -53,6 +53,18 @@
       "name": "ivysaur",
       "url": "https://pokeapi.co/api/v2/pokemon/2/",
       "username": "parto"
+    },
+    {
+      "id": "773a",
+      "name": "paras",
+      "url": "https://pokeapi.co/api/v2/pokemon/46/",
+      "username": "themordhon"
+    },
+    {
+      "id": "f0d4",
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "username": "themordhon"
     }
   ]
 }
