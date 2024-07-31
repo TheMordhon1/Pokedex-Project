@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
-
 import inSound from "../assets/sound/in.wav";
 import outSound from "../assets/sound/out.wav";
 import removeSound from "../assets/sound/remove.wav";

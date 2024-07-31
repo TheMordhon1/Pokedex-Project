@@ -15,6 +15,14 @@
     {
       "id": "2dcf",
       "username": "parto"
+    },
+    {
+      "id": "0c3f",
+      "username": "234555"
+    },
+    {
+      "id": "99fb",
+      "username": "diana"
     }
   ],
   "favourites": [
@@ -71,6 +79,12 @@
       "name": "raichu",
       "url": "https://pokeapi.co/api/v2/pokemon/26/",
       "username": "Sule"
+    },
+    {
+      "id": "37a9",
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "username": "diana"
     }
   ]
 }

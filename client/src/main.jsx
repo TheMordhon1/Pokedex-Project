@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Detail from "./pages/Detail";
+import Error from "./pages/PageError";
+import PageError from "./pages/PageError";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/:user/favourite",
         element: <Favourite />,
+      },
+      { 
+        path: "*",
+        element: <PageError/>
       },
     ],
   },
