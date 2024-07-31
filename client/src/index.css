@@ -5,3 +5,7 @@
 body {
   background-color: #0e181f;
 }
+
+.swal2-icon {
+  border: none !important;
+}

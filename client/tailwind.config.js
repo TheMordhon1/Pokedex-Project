@@ -29,6 +29,9 @@ export default {
         el_steel: "rgba(184, 184, 208, 1)",
         el_water: "rgba(96, 165, 250, 1)",
       },
+      gridTemplateColumns: {
+        custom: "repeat(auto-fill, minmax(270px, 1fr))",
+      },
     },
   },
   plugins: [],

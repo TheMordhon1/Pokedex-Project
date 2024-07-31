@@ -53,11 +53,11 @@ const Pokemon = () => {
     let audio = new Audio(SuccessSound);
     audio.play();
     withReactContent(Swal).fire({
-      title: "Saved",
+      title: "Yeay !",
       html: (
         <>
-          <strong className="capitalize">{popupContent?.name}</strong> added to
-          your favourites
+          <strong className="capitalize">{popupContent?.name}</strong> has been
+          added to your favorites.
         </>
       ),
       icon: "success",
@@ -147,7 +147,7 @@ const Pokemon = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-grow flex-wrap gap-x-2 pt-4">
+        <div className="grid grid-cols-custom mt-10 gap-2">
           {data?.map((el, index) => (
             <CardContainer
               key={index}

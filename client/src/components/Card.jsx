@@ -46,7 +46,7 @@ function Card({ data, onClick, count }) {
 
   return (
     <div
-      className="relative block mb-2 flex-grow flex-shrink overflow-hidden rounded-md p-4 capitalize min-h-[130px] transition-all ease-linear duration-150 hover:shadow-sm hover:shadow-white hover:scale-[1.02] cursor-pointer"
+      className="relative block overflow-hidden rounded-md p-4 capitalize min-h-[130px] transition-all ease-linear duration-150 hover:shadow-sm hover:shadow-white hover:scale-[1.02] cursor-pointer"
       style={{
         background: getBackground(types),
         border: `1px solid ${elements["el_" + types[0]?.type.name]}`,
