@@ -110,9 +110,11 @@ const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
         <div className="flex flex-col gap-4 mt-10">
           <button
             onClick={onConfirm}
-            className="bg-green-500 text-white px-4 py-2 rounded"
+            className={`${
+              isFavorite ? "bg-el_fire" : "bg-el_grass"
+            } text-white px-4 py-2 rounded`}
           >
-            {!isFavorite ? "Save to Favourite" : "Delete Favourite"}
+            {!isFavorite ? "Save to Favourite" : "Remove from favourite"}
           </button>
           <button
             onClick={onClose}

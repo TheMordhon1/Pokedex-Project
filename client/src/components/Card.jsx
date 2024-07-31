@@ -46,10 +46,11 @@ function Card({ data, onClick }) {
 
   return (
     <div
-      className="relative block mb-2 flex-grow flex-shrink flex-[15rem] overflow-hidden rounded-md py-3 px-4 capitalize min-h-[120px] transition-all ease-linear duration-150 hover:shadow-sm hover:shadow-white hover:scale-[1.02] cursor-pointer"
+      className="relative block mb-2 flex-grow flex-shrink overflow-hidden rounded-md py-3 px-4 capitalize min-h-[120px] transition-all ease-linear duration-150 hover:shadow-sm hover:shadow-white hover:scale-[1.02] cursor-pointer"
       style={{
         background: getBackground(types),
         border: `1px solid ${elements["el_" + types[0]?.type.name]}`,
+        flexBasis: "15rem",
       }}
       onClick={onClick}
     >

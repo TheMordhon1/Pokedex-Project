@@ -63,7 +63,7 @@ const Favourite = () => {
       .fire({
         title: "Are you sure?",
         html: `
-              You want to delete <strong>"${popupContent?.name}"</strong>
+              You want to remove <strong>"${popupContent?.name}"</strong>
             `,
         iconHtml: (
           <>
@@ -73,7 +73,7 @@ const Favourite = () => {
         showCancelButton: true,
         confirmButtonColor: "rgba(217, 66, 86, 1)",
         cancelButtonColor: "#949ba7",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: "Yes, remove it!",
         showLoaderOnConfirm: true,
         preConfirm: async () => {
           return new Promise((resolve) => {
