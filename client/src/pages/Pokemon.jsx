@@ -1,17 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
-import Popup from "../Popup";
-import Card from "../components/Card";
-import TextH1 from "../components/TextH1";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import inSound from "../assets/sound/in.wav";
 import outSound from "../assets/sound/out.wav";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import BackTo from "../components/BackTo";
-import Loading from "../components/Loading";
-import { toast } from "react-toastify";
-import Favourite from "./Favourite";
 import CardContainer from "../components/CardContainer";
+import Loading from "../components/Loading";
+import Popup from "../components/Popup";
+import TextH1 from "../components/TextH1";
 
 const Pokemon = () => {
   const [searchParams] = useSearchParams();
@@ -20,6 +20,7 @@ const Pokemon = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupContent, setPopupContent] = useState(null);
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
   const [page, setPage] = useState({
     next: "",
@@ -28,16 +29,31 @@ const Pokemon = () => {
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
+    setPopupContent(null);
   };
 
-  const handleSave = async (name, id) => {
+  const handlePopupOpen = (data) => {
+    setIsPopupOpen(!isPopupOpen);
+    setPopupContent(data);
+  };
+
+  const handleSave = async () => {
+    if (!popupContent) return;
     await axios.post("http://localhost:3000/favourites", {
-      id: id.toString(),
-      name: name,
-      url: `https://pokeapi.co/api/v2/pokemon/${id}`,
+      name: popupContent?.name,
+      url: popupContent?.url,
       username: localStorage.getItem("username"),
     });
-    alert("Data saved!");
+    withReactContent(Swal).fire({
+      title: "Saved",
+      html: (
+        <>
+          <strong className="capitalize">{popupContent?.name}</strong> added to
+          your favourites
+        </>
+      ),
+      icon: "success",
+    });
     setIsPopupOpen(false);
   };
 
@@ -139,7 +155,7 @@ const Pokemon = () => {
               key={index}
               url={el.url}
               isPopupOpen={isPopupOpen}
-              setIsPopupOpen={setIsPopupOpen}
+              handlePopupOpen={() => handlePopupOpen(el)}
             />
           ))}
         </div>
@@ -147,7 +163,8 @@ const Pokemon = () => {
       <Popup
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-        onSave={handleSave}
+        onConfirm={handleSave}
+        content={popupContent}
       />
     </>
   );

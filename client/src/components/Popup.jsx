@@ -1,13 +1,32 @@
-import React from "react";
-import useNavigation from "./hooks/useNavigation";
-import TextH1 from "./components/TextH1";
+import React, { useEffect } from "react";
+import TextH1 from "./TextH1";
+import { useState } from "react";
+import axios from "axios";
+import Loading from "./Loading";
 
-const Popup = ({ isOpen, onClose, onSave, isFavorite }) => {
-  const { handleNavigateTo } = useNavigation();
-  const data = JSON.parse(localStorage.getItem("detail"));
+const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  async function getDetailData() {
+    if (!content?.url) return;
+    try {
+      const response = await axios.get(content?.url);
+      setData(response?.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    if (isOpen && content) {
+      getDetailData();
+    }
+  }, [isOpen, content]);
 
   const formatId = (id) => {
-    return id.toString().padStart(4, "0");
+    return id?.toString().padStart(4, "0");
   };
 
   const elements = {
@@ -35,23 +54,31 @@ const Popup = ({ isOpen, onClose, onSave, isFavorite }) => {
   const getColor = (type) => elements[type] || elements["el_undefined"];
 
   const getBackground = (types) => {
-    if (types.length > 1) {
+    if (types?.length > 1) {
       const colors = types.map((type) => getColor(`el_${type?.type?.name}`));
       return `linear-gradient(80deg, ${colors.join(", ")})`;
     } else {
-      return getColor(`el_${types[0].type.name}`);
+      return getColor(`el_${types[0]?.type?.name}`);
     }
   };
 
   if (!isOpen) return null;
+  if (isLoading)
+    return (
+      <div className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-black/50 grid place-items-center">
+        <Loading />
+      </div>
+    );
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 h-full w-full flex justify-center items-center">
       <div className="bg-black p-6 rounded-lg shadow-lg w-[80%] md:w-[50%] max-w-[26rem] relative z-[51]">
         <div
           className="relative grid place-items-center h-52 rounded-md"
           style={{
-            background: getBackground(data.types),
-            border: `1px solid ${elements["el_" + data.types[0]?.type.name]}`,
+            background: getBackground(data?.types || []),
+            border: `1px solid ${
+              elements["el_" + data?.types[0]?.type?.name || []]
+            }`,
           }}
         >
           <img
@@ -61,8 +88,8 @@ const Popup = ({ isOpen, onClose, onSave, isFavorite }) => {
           />
 
           <div className="absolute bottom-4 right-4 flex items-center">
-            {data.types?.map((type, index) => {
-              const element = type.type.name;
+            {data?.types?.map((type, index) => {
+              const element = type?.type?.name;
               return (
                 <div
                   key={index}
@@ -76,16 +103,16 @@ const Popup = ({ isOpen, onClose, onSave, isFavorite }) => {
           </div>
         </div>
         <div className="flex justify-between items-center  mt-6">
-          <TextH1 text={data.name} className="capitalize tracking-wider" />
-          <span className="text-lg text-slate-300">#{formatId(data.id)}</span>
+          <TextH1 text={data?.name} className="capitalize tracking-wider" />
+          <span className="text-lg text-slate-300">#{formatId(data?.id)}</span>
         </div>
         <p className="mt-4 text-grey">Ini adalah teks konten dalam popup.</p>
         <div className="flex flex-col gap-4 mt-10">
           <button
-            onClick={() => onSave(data.name, data.id)}
+            onClick={onConfirm}
             className="bg-green-500 text-white px-4 py-2 rounded"
           >
-            {!isFavorite ? 'Save to Favourite' : 'Delete Favourite'}
+            {!isFavorite ? "Save to Favourite" : "Delete Favourite"}
           </button>
           <button
             onClick={onClose}

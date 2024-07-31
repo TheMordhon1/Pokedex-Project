@@ -7,26 +7,52 @@
     {
       "id": "1e3d",
       "username": "Sule"
+    },
+    {
+      "id": "9fd6",
+      "username": "themordhon"
+    },
+    {
+      "id": "2dcf",
+      "username": "parto"
     }
   ],
   "favourites": [
     {
-      "id": "2",
-      "name": "ivysaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/2",
-      "username": "Andre"
-    },
-    {
-      "id": "8",
-      "name": "wartortle",
-      "url": "https://pokeapi.co/api/v2/pokemon/8",
-      "username": "Andre"
-    },
-    {
-      "id": "12",
+      "id": "8eb7",
       "name": "butterfree",
-      "url": "https://pokeapi.co/api/v2/pokemon/12",
-      "username": "Andre"
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "username": "Sule"
+    },
+    {
+      "id": "be07",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Sule"
+    },
+    {
+      "id": "85ff",
+      "name": "metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon/11/",
+      "username": "themordhon"
+    },
+    {
+      "id": "801a",
+      "name": "kadabra",
+      "url": "https://pokeapi.co/api/v2/pokemon/64/",
+      "username": "themordhon"
+    },
+    {
+      "id": "63b6",
+      "name": "doduo",
+      "url": "https://pokeapi.co/api/v2/pokemon/84/",
+      "username": "themordhon"
+    },
+    {
+      "id": "9b0d",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "parto"
     }
   ]
 }
