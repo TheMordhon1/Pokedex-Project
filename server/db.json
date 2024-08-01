@@ -15,6 +15,10 @@
     {
       "id": "2dcf",
       "username": "parto"
+    },
+    {
+      "id": "5a33",
+      "username": "Parto"
     }
   ],
   "favourites": [
@@ -71,6 +75,24 @@
       "name": "raichu",
       "url": "https://pokeapi.co/api/v2/pokemon/26/",
       "username": "Sule"
+    },
+    {
+      "id": "c390",
+      "name": "squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon/7/",
+      "username": "Parto"
+    },
+    {
+      "id": "208a",
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "username": "Parto"
+    },
+    {
+      "id": "89ca",
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "username": "Parto"
     }
   ]
 }
