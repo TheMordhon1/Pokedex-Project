@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
-import "./index.css";
-import Favourite from "./pages/Favourite";
-import Pokemon from "./pages/Pokemon";
-import Home from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import App from "./App";
+import "./index.css";
 import Detail from "./pages/Detail";
+import Favourite from "./pages/Favourite";
+import Home from "./pages/Home";
+import PageError from "./pages/PageError";
+import Pokemon from "./pages/Pokemon";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/:user/favourite",
         element: <Favourite />,
+      },
+      {
+        path: "*",
+        element: <PageError />,
       },
     ],
   },

@@ -7,15 +7,37 @@ import Loading from "./Loading";
 const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [abilities, setAbilities] = useState([]);
+
   async function getDetailData() {
+    setAbilities([]);
     if (!content?.url) return;
     try {
       const response = await axios.get(content?.url);
       setData(response?.data);
+      const abilitiesPromises = response?.data?.abilities?.map((item) =>
+        getAbility(item.ability.url)
+      );
+
+      await Promise.all(abilitiesPromises);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+    }
+  }
+
+  async function getAbility(abUrl) {
+    if (!abUrl) return;
+    try {
+      const response = await axios.get(abUrl);
+      const abilityData = response.data.effect_entries.filter(
+        (d) => d.language.name === "en"
+      );
+
+      setAbilities((prevAbilities) => [...prevAbilities, ...abilityData]);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -87,7 +109,7 @@ const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
             height={210}
           />
 
-          <div className="absolute bottom-4 right-4 flex items-center">
+          <div className="absolute bottom-4 left-4 flex items-center">
             {data?.types?.map((type, index) => {
               const element = type?.type?.name;
               return (
@@ -101,24 +123,46 @@ const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
               );
             })}
           </div>
+          {content.count > 1 && (
+            <span className="absolute top-4 right-4 text-white text-lg flex items-center justify-center w-10 h-10 bg-black shadow-sm shadow-white rounded-full">
+              {content.count}x
+            </span>
+          )}
         </div>
-        <div className="flex justify-between items-center  mt-6">
-          <TextH1 text={data?.name} className="capitalize tracking-wider" />
+        <div className="flex justify-between items-center mt-6">
+          <TextH1 text={data?.name} className="capitalize tracking-wide" />
           <span className="text-lg text-slate-300">#{formatId(data?.id)}</span>
         </div>
-        <p className="mt-4 text-grey">Ini adalah teks konten dalam popup.</p>
+        <div className="flex items-center gap-1 mt-1">
+          <p className="text-white text-sm">Type: </p>
+          {data?.types?.map((d, index) => {
+            return (
+              <p key={index} className="text-grey italic text-sm">
+                {index === data?.types.length - 1
+                  ? d?.type?.name
+                  : `${d?.type?.name},`}
+              </p>
+            );
+          })}
+        </div>
+        <div className="grid gap-2 mt-4">
+          <h4 className="text-white/90 font-semibold line-clamp-2">
+            {abilities[0]?.short_effect}
+          </h4>
+          <p className="text-grey line-clamp-5">{abilities[0]?.effect}</p>
+        </div>
         <div className="flex flex-col gap-4 mt-10">
           <button
             onClick={onConfirm}
             className={`${
-              isFavorite ? "bg-el_fire" : "bg-el_grass"
-            } text-white px-4 py-2 rounded`}
+              isFavorite ? "bg-el_fire/80 hover:bg-el_fire" : "bg-el_grass"
+            } text-white px-4 py-2 rounded font-medium`}
           >
             {!isFavorite ? "Save to Favourite" : "Remove from favourite"}
           </button>
           <button
             onClick={onClose}
-            className="bg-el_dragon text-white px-4 py-2 rounded"
+            className="bg-el_dragon/80 hover:bg-el_dragon font-medium text-white px-4 py-2 rounded"
           >
             See more detail
           </button>

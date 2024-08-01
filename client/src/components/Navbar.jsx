@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <div
             className="flex items-center gap-2 cursor-pointer"
-            onClick={() => handleBackTo("/")}
+            onClick={() => handleBackTo("/pokemon")}
           >
             <img src={Logo} alt="logo" className="w-10" />
             <div className="font-bold -skew-x-12 text-white mt-2 text-xl">
@@ -91,7 +91,7 @@ const Navbar = () => {
       <header className="sticky top-0 z-50 flex md:hidden items-center justify-between w-full bg-ligthblack border-grey/20 border-b h-[60px] px-8 md:px-20">
         <div
           className="flex items-center gap-2 cursor-pointer"
-          onClick={() => handleBackTo("/")}
+          onClick={() => handleBackTo("/pokemon")}
         >
           <img src={Logo} alt="logo" className="w-10" />
           <div className="font-bold -skew-x-12 text-white mt-2 text-xl">

@@ -9,10 +9,11 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
-
 import inSound from "../assets/sound/in.wav";
 import outSound from "../assets/sound/out.wav";
 import removeSound from "../assets/sound/remove.wav";
+import EmptyState from "../components/EmptyState";
+import trashgif from "../assets/trash.webm";
 
 const Favourite = () => {
   const username = localStorage.getItem("username");
@@ -29,7 +30,19 @@ const Favourite = () => {
       const filterByUsername = response.data.filter(
         (data) => data.username === username
       );
-      setDataFav(filterByUsername);
+
+      const newData = {};
+      filterByUsername.map((item) => {
+        if (newData[item.name]) {
+          newData[item.name].count++;
+        } else {
+          newData[item.name] = { ...item, count: 1 };
+        }
+
+        return newData[item.name];
+      });
+
+      setDataFav(Object.values(newData));
     } catch (error) {
       console.log(error);
       toast.error(error.message, { theme: "light" });
@@ -62,12 +75,15 @@ const Favourite = () => {
     withReactContent(Swal)
       .fire({
         title: "Are you sure?",
-        html: `
-              You want to remove <strong>"${popupContent?.name}"</strong>
-            `,
+        html: (
+          <>
+            You want to remove{" "}
+            <strong className="capitalize">{popupContent?.name}</strong>
+          </>
+        ),
         iconHtml: (
           <>
-            <FaTrash className="animate__animated animate__fadeInUp text-5xl text-red-500" />
+            <video src={trashgif} />
           </>
         ),
         showCancelButton: true,
@@ -92,14 +108,22 @@ const Favourite = () => {
           let audio = new Audio(removeSound);
           audio.play();
           withReactContent(Swal).fire({
-            title: "Deleted!",
-            html: (
-              <>
-                <strong className="capitalize">{popupContent?.name}</strong> has
-                been deleled !
-              </>
-            ),
-            icon: "success",
+            title: "Removed!",
+            html:
+              popupContent.count > 1 ? (
+                <>
+                  one of{" "}
+                  <strong className="capitalize">{popupContent?.name}'s</strong>{" "}
+                  is no longer in your favourites.
+                </>
+              ) : (
+                <>
+                  <strong className="capitalize">{popupContent?.name}</strong>{" "}
+                  is no longer in your favourites.
+                </>
+              ),
+
+            iconHtml: <video src={trashgif} autoPlay loop />,
           });
         }
       })
@@ -112,17 +136,25 @@ const Favourite = () => {
 
   return (
     <section className="py-10">
-      <BackTo text="back to home" to={"/"} />
-      <div className="flex items-center gap-6">
-        <TextH1 text="Your Favourite" />
-        {isLoading ? <Loading width="w-6" height="h-6" /> : ""}
-      </div>
-      <div className="flex flex-grow flex-wrap gap-x-2 pt-4 mt-10">
+      <BackTo text="back to home" to={"/pokemon"} />
+      {dataFav.length > 0 && (
+        <div className="flex items-center gap-6 mt-4">
+          <TextH1 text="Your Favourite" />
+          {isLoading ? <Loading width="w-6" height="h-6" /> : ""}
+        </div>
+      )}
+      {dataFav.length === 0 && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <EmptyState title="Ooops..." subtitle="No favourites found." />
+        </div>
+      )}
+      <div className="grid grid-cols-custom mt-10 gap-2">
         {dataFav?.map((el, index) => (
           <CardContainer
             key={index}
             url={el?.url}
             isPopupOpen={isPopupOpen}
+            count={el.count}
             handlePopupOpen={() => handlePopupOpen(el)}
           />
         ))}
