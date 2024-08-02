@@ -1,0 +1,121 @@
+{
+  "user": [
+    {
+      "id": "6db8",
+      "username": "Andre"
+    },
+    {
+      "id": "1e3d",
+      "username": "Sule"
+    },
+    {
+      "id": "9fd6",
+      "username": "themordhon"
+    },
+    {
+      "id": "2dcf",
+      "username": "parto"
+    },
+    {
+      "id": "0c3f",
+      "username": "234555"
+    },
+    {
+      "id": "99fb",
+      "username": "diana"
+    },
+    {
+      "id": "4a7c",
+      "username": "Aaa"
+    },
+    {
+      "id": "28c7",
+      "username": "koko"
+    },
+    {
+      "id": "387d",
+      "username": "themorhon"
+    }
+  ],
+  "favourites": [
+    {
+      "id": "9b0d",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "parto"
+    },
+    {
+      "id": "38bf",
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "username": "themordhon"
+    },
+    {
+      "id": "8c10",
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "username": "themordhon"
+    },
+    {
+      "id": "4c0c",
+      "name": "raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon/20/",
+      "username": "themordhon"
+    },
+    {
+      "id": "397a",
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "username": "themordhon"
+    },
+    {
+      "id": "a0ae",
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "username": "themordhon"
+    },
+    {
+      "id": "d104",
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "username": "themordhon"
+    },
+    {
+      "id": "d38c",
+      "name": "ariados",
+      "url": "https://pokeapi.co/api/v2/pokemon/168/",
+      "username": "themordhon"
+    },
+    {
+      "id": "06e0",
+      "name": "ariados",
+      "url": "https://pokeapi.co/api/v2/pokemon/168/",
+      "username": "themordhon"
+    },
+    {
+      "id": "6f6b",
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "username": "themordhon"
+    },
+    {
+      "id": "b829",
+      "name": "murkrow",
+      "url": "https://pokeapi.co/api/v2/pokemon/198/",
+      "username": "themordhon"
+    },
+    {
+      "id": "f1b0",
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8/",
+      "username": "themordhon"
+    },
+
+    {
+      "id": "a12b",
+      "name": "raichu",
+      "url": "https://pokeapi.co/api/v2/pokemon/26/",
+      "username": "Sule"
+    }
+  ]
+}

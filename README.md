@@ -5,7 +5,15 @@
 
 # Ticket
 
-- update di develop
-- [] Fitur Search [Romdon]
-- [x] Ticket B [Syailendra]
-- [ ] Ticket C [Diana]
+- [ ] API - Favourite
+- [ ] Page - Favourite
+- [ ] Page - Error
+- [x] Component - InputText[Romdon]
+- [x] Component - Navbar[Romdon][Syailendra]
+- [x] Component - PopUp[Romdon][Syailendra]
+- [x] Component - Card [Diana][Romdon]
+- [x] Component - Sidebar [Romdon]
+- [x] API - list data [Diana]
+- [x] API - search data [Diana]
+- [x] API - userlog [Romdon]
+- [x] API - userlog [Romdon]
