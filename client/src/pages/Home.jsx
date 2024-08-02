@@ -65,6 +65,8 @@ const Home = () => {
         <InputText
           placeholder="Type your name"
           background="bg-ligthblack"
+          value={name}
+          setValue={setName}
           onChange={(e) => setName(e.target.value)}
         />
       </form>

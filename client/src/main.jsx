@@ -10,6 +10,7 @@ import Favourite from "./pages/Favourite";
 import Home from "./pages/Home";
 import PageError from "./pages/PageError";
 import Pokemon from "./pages/Pokemon";
+import EggGroup from "./pages/EggGroup";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/pokemon?",
+        path: "/pokemon",
         element: <Pokemon />,
+      },
+      {
+        path: "/egg-group/:group?",
+        element: <EggGroup />,
       },
       {
         path: "/pokemon/:name?",

@@ -15,6 +15,26 @@
     {
       "id": "2dcf",
       "username": "parto"
+    },
+    {
+      "id": "0c3f",
+      "username": "234555"
+    },
+    {
+      "id": "99fb",
+      "username": "diana"
+    },
+    {
+      "id": "4a7c",
+      "username": "Aaa"
+    },
+    {
+      "id": "28c7",
+      "username": "koko"
+    },
+    {
+      "id": "387d",
+      "username": "themorhon"
     }
   ],
   "favourites": [
@@ -23,12 +43,6 @@
       "name": "ivysaur",
       "url": "https://pokeapi.co/api/v2/pokemon/2/",
       "username": "parto"
-    },
-    {
-      "id": "cfea",
-      "name": "venusaur",
-      "url": "https://pokeapi.co/api/v2/pokemon/3/",
-      "username": "themordhon"
     },
     {
       "id": "38bf",
@@ -67,12 +81,6 @@
       "username": "themordhon"
     },
     {
-      "id": "2710",
-      "name": "dragonair",
-      "url": "https://pokeapi.co/api/v2/pokemon/148/",
-      "username": "themordhon"
-    },
-    {
       "id": "d38c",
       "name": "ariados",
       "url": "https://pokeapi.co/api/v2/pokemon/168/",
@@ -102,11 +110,114 @@
       "url": "https://pokeapi.co/api/v2/pokemon/8/",
       "username": "themordhon"
     },
+
     {
-      "id": "a12b",
-      "name": "raichu",
-      "url": "https://pokeapi.co/api/v2/pokemon/26/",
-      "username": "Sule"
+      "id": "9e05",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "themordhon"
+    },
+    {
+      "id": "05c3",
+      "name": "raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon/20/",
+      "username": "themordhon"
+    },
+    {
+      "id": "f450",
+      "name": "ninetales",
+      "url": "https://pokeapi.co/api/v2/pokemon/38/",
+      "username": "themordhon"
+    },
+    {
+      "id": "5a7b",
+      "name": "ekans",
+      "url": "https://pokeapi.co/api/v2/pokemon/23/",
+      "username": "themordhon"
+    },
+    {
+      "id": "4e30",
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "username": "Aaa"
+    },
+    {
+      "id": "4c08",
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "username": "Aaa"
+    },
+    {
+      "id": "a887",
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "username": "Aaa"
+    },
+    {
+      "id": "321c",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Aaa"
+    },
+    {
+      "id": "f7c9",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Aaa"
+    },
+    {
+      "id": "2f79",
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "username": "Aaa"
+    },
+    {
+      "id": "5e32",
+      "name": "raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon/20/",
+      "username": "Aaa"
+    },
+    {
+      "id": "b8d4",
+      "name": "amoonguss",
+      "url": "https://pokeapi.co/api/v2/pokemon/591/",
+      "username": "themorhon"
+    },
+    {
+      "id": "43cf",
+      "name": "beheeyem",
+      "url": "https://pokeapi.co/api/v2/pokemon/606/",
+      "username": "themorhon"
+    },
+    {
+      "id": "7b6a",
+      "name": "kyurem",
+      "url": "https://pokeapi.co/api/v2/pokemon/646/",
+      "username": "themorhon"
+    },
+    {
+      "id": "a7c5",
+      "name": "kyurem",
+      "url": "https://pokeapi.co/api/v2/pokemon/646/",
+      "username": "themorhon"
+    },
+    {
+      "id": "16c7",
+      "name": "kyurem",
+      "url": "https://pokeapi.co/api/v2/pokemon/646/",
+      "username": "themorhon"
+    },
+    {
+      "id": "f50d",
+      "name": "kyurem",
+      "url": "https://pokeapi.co/api/v2/pokemon/646/",
+      "username": "themorhon"
+    },
+    {
+      "id": "0049",
+      "name": "kyurem",
+      "url": "https://pokeapi.co/api/v2/pokemon/646/",
+      "username": "themorhon"
     }
   ]
 }

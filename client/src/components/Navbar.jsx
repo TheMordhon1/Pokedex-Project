@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import useNavigation from "../hooks/useNavigation";
-import InputText from "./InputText";
 import { FaHeart, FaUser } from "react-icons/fa";
 import { IoMdArrowDropdown, IoMdMenu } from "react-icons/io";
+import { PiEggCrackFill } from "react-icons/pi";
 import Swal from "sweetalert2";
-import Sidebar from "./Sidebar";
 import Logo from "../assets/logo.png";
+import useNavigation from "../hooks/useNavigation";
+import InputText from "./InputText";
+import Sidebar from "./Sidebar";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const { handleBackTo, handleNavigateTo } = useNavigation();
@@ -53,20 +55,36 @@ const Navbar = () => {
           <form onSubmit={handleSubmitSearch} className="w-[15rem]">
             <InputText
               placeholder="🔍 Search pokémon"
+              value={search}
+              setValue={setSearch}
               onChange={(e) => setSearch(e.target.value)}
             />
           </form>
         </div>
-        <ul className="flex items-center gap-4">
-          <li title="favourite">
-            <button
-              className="bg-lightblack hover:bg-slate-900 text-white font-bold py-3 px-2 rounded"
-              onClick={() => handleNavigateTo(`${username}/favourite`)}
-            >
-              <FaHeart />
-            </button>
-          </li>
-          <li className="relative">
+        <nav className="flex items-center gap-4">
+          <NavLink
+            className={({ isActive }) =>
+              `${
+                isActive ? "text-yellow-300 bg-slate-900" : "text-white"
+              } bg-lightblack hover:bg-slate-900 text-white font-bold py-3 px-2 rounded`
+            }
+            to={`egg-group`}
+          >
+            <PiEggCrackFill />
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              `${
+                isActive ? "text-el_fighting bg-slate-900" : "text-white"
+              } bg-lightblack hover:bg-slate-900 text-white font-bold py-3 px-2 rounded`
+            }
+            to={`${username}/favourite`}
+          >
+            <FaHeart />
+          </NavLink>
+
+          <div className="relative">
             <button
               className="bg-black text-white font-bold py-2 px-4 rounded flex items-center gap-4"
               onClick={() => setShowLogout(!showLogout)}
@@ -83,8 +101,8 @@ const Navbar = () => {
                 Logout
               </button>
             )}
-          </li>
-        </ul>
+          </div>
+        </nav>
       </header>
 
       {/* Navbar Mobile */}
