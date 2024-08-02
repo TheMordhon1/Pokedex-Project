@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 
-const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
+const Popup = ({ isOpen, onClose, onConfirm, onSave, isFavorite, content }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [abilities, setAbilities] = useState([]);
@@ -152,14 +152,24 @@ const Popup = ({ isOpen, onClose, onConfirm, isFavorite, content }) => {
           <p className="text-grey line-clamp-5">{abilities[0]?.effect}</p>
         </div>
         <div className="flex flex-col gap-4 mt-10">
-          <button
-            onClick={onConfirm}
-            className={`${
-              isFavorite ? "bg-el_fire/80 hover:bg-el_fire" : "bg-el_grass"
-            } text-white px-4 py-2 rounded font-medium`}
-          >
-            {!isFavorite ? "Save to Favourite" : "Remove from favourite"}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onConfirm}
+              className={`${
+                isFavorite ? "bg-el_fire/80 hover:bg-el_fire" : "bg-el_grass"
+              } text-white px-4 py-2 rounded font-medium flex-1 text-sm`}
+            >
+              {!isFavorite ? "Save to Favourite" : "Remove"}
+            </button>
+            {isFavorite && (
+              <button
+                onClick={onSave}
+                className="bg-el_grass/80 hover:bg-el_grass font-medium text-white px-4 py-2 rounded flex-1"
+              >
+                Update item
+              </button>
+            )}
+          </div>
           <button
             onClick={onClose}
             className="bg-el_dragon/80 hover:bg-el_dragon font-medium text-white px-4 py-2 rounded"

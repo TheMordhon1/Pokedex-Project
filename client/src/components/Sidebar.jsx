@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useNavigation from "../hooks/useNavigation";
 import InputText from "./InputText";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
   const [search, setSearch] = useState("");
@@ -20,27 +21,46 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
       >
         <div>
           <p className="text-grey text-base mb-2 block sm:hidden">Search</p>
-          <form onSubmit={handleSubmitSearch} className="w-full mb-6">
+          <form
+            onSubmit={handleSubmitSearch}
+            className="w-full mb-6 block sm:hidden"
+          >
             <InputText
-              className="block sm:hidden"
               placeholder="🔍 Search pokémon"
               onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              setValue={setSearch}
             />
           </form>
           <p className="text-grey text-base mb-2">Menu</p>
-          <ul className="grid gap-4">
-            <li>
-              <button
-                className="hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left"
-                onClick={() => {
-                  handleNavigateTo(`${username}/favourite`);
-                  setShown(false);
-                }}
-              >
-                Favourite
-              </button>
-            </li>
-          </ul>
+          <nav className="grid gap-4">
+            <NavLink
+              className={({ isActive }) =>
+                `${
+                  isActive ? "bg-slate-900" : ""
+                } hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left`
+              }
+              onClick={() => {
+                setShown(false);
+              }}
+              to={`egg-group`}
+            >
+              Egg Group
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `${
+                  isActive ? "bg-slate-900" : ""
+                } hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left`
+              }
+              to={`${username}/favourite`}
+              onClick={() => {
+                setShown(false);
+              }}
+            >
+              Favourite
+            </NavLink>
+          </nav>
         </div>
         <div className="grid gap-4">
           <h4 className="text-white font-semibold text-xl">

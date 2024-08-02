@@ -13,6 +13,7 @@ import Loading from "../components/Loading";
 import Popup from "../components/Popup";
 import TextH1 from "../components/TextH1";
 import SuccessSound from "../assets/sound/success.wav";
+import EmptyState from "../components/EmptyState";
 
 const Pokemon = () => {
   const [searchParams] = useSearchParams();
@@ -22,7 +23,9 @@ const Pokemon = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
-  const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
+  const [url, setUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=21"
+  );
   const [page, setPage] = useState({
     next: "",
     prev: "",
@@ -76,7 +79,7 @@ const Pokemon = () => {
           : url
       );
       setPage({
-        next: response?.data?.next,
+        next: String(response?.data?.next).replace("limit=20", "limit=21"),
         prev: response?.data?.previous,
       });
       if (searchQuery) {
@@ -114,7 +117,7 @@ const Pokemon = () => {
 
   return (
     <>
-      <section className="py-10">
+      <section className="py-10 relative">
         <div className="flex items-center justify-between mb-8">
           <div className="grid gap-2">
             {searchQuery ? (
@@ -123,7 +126,7 @@ const Pokemon = () => {
               ""
             )}
             <div className="flex items-center gap-6">
-              <TextH1 text="Pokémon List" />
+              {data.length > 0 && <TextH1 text="Pokémon List" />}
               {isLoading ? <Loading width="w-6" height="h-6" /> : ""}
             </div>
           </div>
@@ -148,16 +151,33 @@ const Pokemon = () => {
           </div>
         </div>
         <div className="grid grid-cols-custom mt-10 gap-2">
-          {data?.map((el, index) => (
-            <CardContainer
-              key={index}
-              url={el.url}
-              isPopupOpen={isPopupOpen}
-              handlePopupOpen={() => handlePopupOpen(el)}
-            />
-          ))}
+          {data.length > 0 &&
+            data?.map((el, index) => (
+              <CardContainer
+                key={index}
+                url={el.url}
+                isPopupOpen={isPopupOpen}
+                handlePopupOpen={() => handlePopupOpen(el)}
+              />
+            ))}
         </div>
       </section>
+      {data.length === 0 && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <EmptyState
+            title={isLoading ? "Please wait..." : "Ooops..."}
+            subtitle={
+              !isLoading && (
+                <>
+                  {" "}
+                  <strong className="text-white">{searchQuery} </strong>not
+                  found
+                </>
+              )
+            }
+          />
+        </div>
+      )}
       <Popup
         isOpen={isPopupOpen}
         onClose={handleClosePopup}

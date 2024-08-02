@@ -7,13 +7,13 @@ import TextH1 from "../components/TextH1";
 import Popup from "../components/Popup";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import inSound from "../assets/sound/in.wav";
 import outSound from "../assets/sound/out.wav";
 import removeSound from "../assets/sound/remove.wav";
 import EmptyState from "../components/EmptyState";
 import trashgif from "../assets/trash.webm";
+import SuccessSound from "../assets/sound/success.wav";
 
 const Favourite = () => {
   const username = localStorage.getItem("username");
@@ -67,6 +67,8 @@ const Favourite = () => {
   };
 
   useEffect(() => {
+    let audio = new Audio(inSound);
+    audio.play();
     getDataFav();
   }, []);
 
@@ -134,6 +136,30 @@ const Favourite = () => {
       .finally(setIsLoading(false));
   };
 
+  const handleSave = async () => {
+    if (!popupContent) return;
+    await axios.post("http://localhost:3000/favourites", {
+      name: popupContent?.name,
+      url: popupContent?.url,
+      username: localStorage.getItem("username"),
+    });
+    let audio = new Audio(SuccessSound);
+    audio.play();
+    getDataFav();
+    withReactContent(Swal).fire({
+      title: "Yeay !",
+      html: (
+        <>
+          <strong className="capitalize">{popupContent?.name}</strong> has been
+          added to your favorites.
+        </>
+      ),
+      icon: "success",
+    });
+
+    setIsPopupOpen(false);
+  };
+
   return (
     <section className="py-10">
       <BackTo text="back to home" to={"/pokemon"} />
@@ -163,6 +189,7 @@ const Favourite = () => {
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
         onConfirm={handleDelete}
+        onSave={handleSave}
         isFavorite={true}
         content={popupContent}
       />
