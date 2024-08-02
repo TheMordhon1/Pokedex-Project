@@ -38,12 +38,12 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
               className={({ isActive }) =>
                 `${
                   isActive ? "bg-slate-900" : ""
-                }hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left`
+                } hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left`
               }
               onClick={() => {
-                handleNavigateTo(`egg-group`);
                 setShown(false);
               }}
+              to={`egg-group`}
             >
               Egg Group
             </NavLink>
@@ -51,10 +51,10 @@ const Sidebar = ({ username, shown, setShown, handleToggle, handleLogout }) => {
               className={({ isActive }) =>
                 `${
                   isActive ? "bg-slate-900" : ""
-                }hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left`
+                } hover:bg-slate-900 text-white font-bold py-2 px-4 rounded w-full text-left`
               }
+              to={`${username}/favourite`}
               onClick={() => {
-                handleNavigateTo(`${username}/favourite`);
                 setShown(false);
               }}
             >
