@@ -3,8 +3,10 @@ import TextH1 from "./TextH1";
 import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
+import useNavigation from "../hooks/useNavigation";
 
 const Popup = ({ isOpen, onClose, onConfirm, onSave, isFavorite, content }) => {
+  const { handleNavigateTo } = useNavigation();
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [abilities, setAbilities] = useState([]);
@@ -171,7 +173,7 @@ const Popup = ({ isOpen, onClose, onConfirm, onSave, isFavorite, content }) => {
             )}
           </div>
           <button
-            onClick={onClose}
+            onClick={() => handleNavigateTo(`/pokemon/${content.name}`)}
             className="bg-el_dragon/80 hover:bg-el_dragon font-medium text-white px-4 py-2 rounded"
           >
             See more detail
