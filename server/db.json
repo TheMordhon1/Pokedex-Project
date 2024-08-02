@@ -189,6 +189,12 @@
       "name": "charmeleon",
       "url": "https://pokeapi.co/api/v2/pokemon/5/",
       "username": "Parto"
+    },
+    {
+      "id": "590a",
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "username": "Parto"
     }
   ]
 }
